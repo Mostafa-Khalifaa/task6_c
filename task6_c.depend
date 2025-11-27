@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1764149313 source:/home/mostafa/Desktop/C++/task6_c/editor.cpp
+	"editor.h"
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<termios.h>
+	<unistd.h>
+
+1763806620 source:/home/mostafa/Desktop/C++/task6_c/main.cpp
+	"menu.h"
+	<cstdlib>
+
+1764149095 /home/mostafa/Desktop/C++/task6_c/menu.h
+	"editor.h"
+
+1764149346 /home/mostafa/Desktop/C++/task6_c/editor.h
+
+1764149727 source:/home/mostafa/Desktop/C++/task6_c/menu.cpp
+	"menu.h"
+	<iostream>
+	<cstdlib>
+	<unistd.h>
+	<cstring>
+	<termios.h>
+
+1763844288 /home/mostafa/Desktop/C++/task6_c/utils.h
+
