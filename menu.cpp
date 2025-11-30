@@ -37,9 +37,8 @@ void destroyMenu(MenuData* menu) {
 void displayMenu(int selected) {
     system("clear");
     std::cout << "\n";
-    std::cout << "╔════════════════════════════╗\n";
-    std::cout << "║    SIMPLE TEXT EDITOR      ║\n";
-    std::cout << "╚════════════════════════════╝\n";
+    std::cout << "    SIMPLE TEXT EDITOR      \n";
+
     std::cout << "\n";
 
     // Highlight selected option
@@ -79,11 +78,10 @@ void showText(MenuData* menu) {
     }
 
 std::cout << "\n\nPress Enter to return to menu...";
-std::cin.get(); // only this
+std::cin.get();
 
 }
 
-// Exit with goodbye message
 void exitProgram() {
     system("clear");
     std::cout << "\n\n";
@@ -105,15 +103,19 @@ void handleChoice(MenuData* menu) {
             system("clear");
             std::cout << "You already have saved text.\n";
             std::cout << "1. Continue editing\n";
-            std::cout << "2. Clear and write new text\n\n";
+            std::cout << "2. Clear and write new text\n";
+            std::cout << "3. Return to Main Menu\n\n";
             std::cout << "Enter choice: ";
 
             int subChoice;
             std::cin >> subChoice;
-            std::cin.ignore(); // fix input issues
+            std::cin.ignore();
 
             if (subChoice == 2) {
                 clearEditor(menu->editor);
+            }
+            else if (subChoice == 3) {
+                return; // <-- go back to menu without editing
             }
         }
 
@@ -128,17 +130,17 @@ void handleChoice(MenuData* menu) {
 }
 
 
+
 // Main menu loop
 void runMenu(MenuData* menu) {
     bool running = true;
-    menu->selectedOption = 0;  // Start at first option
+    menu->selectedOption = 0;
 
     while (running) {
         displayMenu(menu->selectedOption);
 
         char ch = getMenuChar();
 
-        // Check for special keys
         if (ch == 27) {  // ESC sequence (arrow keys)
             ch = getMenuChar();
             if (ch == '[') {
@@ -155,8 +157,8 @@ void runMenu(MenuData* menu) {
                     }
                 }
             }
-        } else if (ch == '\n' || ch == '\r') {  // Enter key
-            if (menu->selectedOption == 2) {  // Exit option
+        } else if (ch == '\n' || ch == '\r') {
+            if (menu->selectedOption == 2) {
                 running = false;
             }
             handleChoice(menu);
